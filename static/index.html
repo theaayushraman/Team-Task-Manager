@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Task Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- ── Auth Page ─────────────────────────────────────────────────────────── -->
+  <div id="auth-page" style="display:none">
+    <div class="auth-card" id="auth-card">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <!-- ── App Page ──────────────────────────────────────────────────────────── -->
+  <div id="app-page" style="display:none;min-height:100vh">
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <!-- Logo -->
+      <div style="padding:20px 20px 10px;border-bottom:1px solid #1e293b">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;background:#3b82f6;border-radius:10px;display:flex;align-items:center;justify-content:center">
+            <i class="fas fa-check-square" style="color:#fff;font-size:16px"></i>
+          </div>
+          <div>
+            <div style="color:#f1f5f9;font-size:14px;font-weight:700;line-height:1.2">Task Manager</div>
+            <div style="color:#475569;font-size:11px">Team Edition</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav -->
+      <nav style="padding:12px 0;flex:1">
+        <div style="padding:6px 16px;margin-bottom:4px">
+          <span style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.1em">Navigation</span>
+        </div>
+        <a class="nav-link" data-view="dashboard" onclick="navigate('dashboard')">
+          <i class="fas fa-home" style="width:16px;text-align:center"></i> Dashboard
+        </a>
+        <a class="nav-link" data-view="projects" onclick="navigate('projects')">
+          <i class="fas fa-folder" style="width:16px;text-align:center"></i> Projects
+        </a>
+      </nav>
+
+      <!-- User info -->
+      <div style="padding:16px;border-top:1px solid #1e293b">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div class="avatar" id="sidebar-avatar" style="flex-shrink:0">U</div>
+          <div style="overflow:hidden">
+            <div style="color:#e2e8f0;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" id="sidebar-username">User</div>
+            <div style="color:#64748b;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" id="sidebar-email">email</div>
+          </div>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="doLogout()" style="width:100%;justify-content:center;color:#ef4444;border-color:#7f1d1d">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <div id="content">
+        <!-- Rendered by JS -->
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ── Modal ─────────────────────────────────────────────────────────────── -->
+  <div id="modal-overlay" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal()">
+    <div class="modal-box">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+        <h2 style="margin:0;font-size:18px;font-weight:700;color:#0f172a" id="modal-title">Modal</h2>
+        <button onclick="closeModal()" style="background:none;border:none;color:#94a3b8;cursor:pointer;font-size:20px;padding:0;line-height:1">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ── Toast Container ───────────────────────────────────────────────────── -->
+  <div id="toast"></div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
