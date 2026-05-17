@@ -46,7 +46,7 @@ function showAuthPage(mode = 'login') {
 }
 function showAppPage() {
   document.getElementById('auth-page').style.display = 'none';
-  document.getElementById('app-page').style.display = 'flex';
+  document.getElementById('app-page').style.display = 'block';
   updateSidebarUser();
   render();
 }
